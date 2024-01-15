@@ -1,17 +1,19 @@
-def ierakstit_vardu_faila(vards, fails_cesta):
+def nolasit_un_izdrukats(nosaukums, formats):
     try:
-        with open(fails_cesta, 'a') as fails:
-            fails.write(vards + '\n')
-        print("Vārds veiksmīgi ierakstīts failā.")
+        fails_cesta = f"{nosaukums}.{formats}"
+        with open(fails_cesta, 'r') as fails:
+            saturs = fails.read()
+            print(f"Faila saturs ({nosaukums}.{formats}):")
+            print(saturs)
+    except FileNotFoundError:
+        print(f"Kļūda: Fails '{nosaukums}.{formats}' netika atrasts.")
     except IOError as e:
-        print(f"Kļūda: Nevarēja ierakstīt failā. {e}")
+        print(f"Kļūda: Nevarēja nolasīt failu. {e}")
     except Exception as e:
         print(f"Kļūda: Nezināma kļūda. {e}")
 
+nosaukums = input("Ievadiet faila nosaukumu: ")
+formats = input("Ievadiet faila formātu (paplašinājumu): ")
 
-vards = input("Ievadiet savu vārdu: ")
 
-
-fails_cesta = 'lietotajs.txt'
-
-ierakstit_vardu_faila(vards, fails_cesta)
+nolasit_un_izdrukats(nosaukums, formats)

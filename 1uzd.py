@@ -1,5 +1,3 @@
-
-file=open("hello.txt","r")
 def read_and_print(file_path):
     try:
         with open(file_path, 'r') as file:
@@ -11,7 +9,6 @@ def read_and_print(file_path):
     except Exception as e:
         print(f"Error: Unable to read the file. {e}")
 
-
-file_path = 'hello.txt'
-
-read_and_print(file_path)
+if __name__ == "__main__":
+    file_path = "hello.txt"  
+    read_and_print(file_path)
