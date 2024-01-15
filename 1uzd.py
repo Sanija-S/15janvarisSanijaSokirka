@@ -1,4 +1,4 @@
-def read_and_print(file_path):
+def read_hello_file(file_path):
     try:
         with open(file_path, 'r') as file:
             content = file.read()
@@ -10,5 +10,5 @@ def read_and_print(file_path):
         print(f"Error: Unable to read the file. {e}")
 
 if __name__ == "__main__":
-    file_path = "hello.txt"  
-    read_and_print(file_path)
+    file_path = 'hello.txt' 
+    read_hello_file(file_path)
